@@ -35,3 +35,8 @@ class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+from django.shortcuts import render
+
+def home_view(request):
+    return render(request, 'home.html')
