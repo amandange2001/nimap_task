@@ -13,3 +13,4 @@ class Project(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, related_name='created_projects', on_delete=models.CASCADE)
     updated_at = models.DateTimeField(auto_now=True)
+    

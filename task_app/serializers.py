@@ -4,10 +4,11 @@ from .models import Client, Project
 
 class ClientSerializer(serializers.ModelSerializer):
     created_by = serializers.ReadOnlyField(source='created_by.username')
+    projects = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Client
-        fields = ['id', 'client_name', 'created_at', 'created_by']
+        fields = ['id', 'client_name', 'created_at', 'created_by', 'projects']
 
 class ProjectSerializer(serializers.ModelSerializer):
     client = serializers.ReadOnlyField(source='client.client_name')
